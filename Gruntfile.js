@@ -29,7 +29,8 @@ module.exports = function(grunt) {
                 , options: {
                     specs: "test/*js"
                     , vendor: [
-                        "node_modules/backbone/node_modules/underscore/underscore.js"
+                        "bower_components/jquery/jquery.js"
+                        , "node_modules/backbone/node_modules/underscore/underscore.js"
                         , "node_modules/backbone/backbone.js"
                     ]
                 }
@@ -43,12 +44,13 @@ module.exports = function(grunt) {
                         requireConfig: {
                             baseUrl: "js/"
                             , paths: {
-                                "backbone": "../node_modules/backbone/backbone"
+                                "jquery": "../bower_components/jquery/jquery"
+                                , "backbone": "../node_modules/backbone/backbone"
                                 , "underscore": "../node_modules/backbone/node_modules/underscore/underscore"
                             }
                             , shim: {
                                 backbone: {
-                                    deps: ["underscore"]
+                                    deps: ["underscore", "jquery"]
                                     , exports: "Backbone"
                                 }
                             }
